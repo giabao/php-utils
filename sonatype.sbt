@@ -1,12 +1,4 @@
-xerial.sbt.Sonatype.sonatypeSettings
-
-publishMavenStyle := true
-
-publishArtifact in Test := false
-
-pomIncludeRepository := { _ => false }
-
-pomExtra := <url>https://github.com/cuongdd2/php-utils</url>
+pomExtra in Global := <url>https://github.com/giabao/php-utils</url>
   <licenses>
     <license>
       <name>Apache 2</name>
@@ -15,16 +7,23 @@ pomExtra := <url>https://github.com/cuongdd2/php-utils</url>
     </license>
   </licenses>
   <scm>
-    <url>git@github.com:cuongdd2/php-utils.git</url>
-    <connection>scm:git:git@github.com:cuongdd2/php-utils.git</connection>
+    <url>git@github.com:giabao/php-utils.git</url>
+    <connection>scm:git:git@github.com:giabao/php-utils.git</connection>
   </scm>
   <developers>
     <developer>
+      <id>giabao</id>
+      <name>Gia Bảo</name>
+      <email>giabao@sandinh.net</email>
+      <organization>Sân Đình</organization>
+      <organizationUrl>http://sandinh.com</organizationUrl>
+    </developer>
+    <developer>
       <id>cuongdd2</id>
       <name>Đỗ Đức Cường</name>
-      <email>cuongdd2@gmail.com</email>
-      <organization>Chắn Pro</organization>
-      <organizationUrl>https://chanpro.com</organizationUrl>
+      <email>cuongdd@sandinh.net</email>
+      <organization>Sân Đình</organization>
+      <organizationUrl>http://sandinh.com</organizationUrl>
     </developer>
     <developer>
       <id>kayahr</id>
