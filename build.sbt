@@ -9,4 +9,4 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.5" % Test
 
 scalacOptions ++= Seq("-encoding", "UTF-8", "-feature", "-deprecation")
 
-//parallelExecution in Test := false
+parallelExecution in Test := false
