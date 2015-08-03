@@ -9,8 +9,8 @@ private class SerializeException(s: String) extends Exception
 private class Stringifier {
   private val charset = Charset.forName("UTF-8")
   private val refs = ArrayBuffer.empty[Any]
-  private var php64:Boolean = true
-  def write(o: Object, _php64bit:Boolean = true): String = {
+  private var php64: Boolean = true
+  def write(o: Object, _php64bit: Boolean = true): String = {
     val buffer = new StringBuffer()
     php64 = _php64bit
     stringifyObject(o, buffer)
@@ -68,7 +68,7 @@ private class Stringifier {
 
   private def stringifyLong(number: Long, buffer: StringBuffer) {
     if ((number >= Integer.MIN_VALUE) && (number <= Integer.MAX_VALUE)) buffer.append("i:")
-    else if(php64) buffer.append("i:")
+    else if (php64) buffer.append("i:")
     else buffer.append("d:")
     buffer.append(number).append(";")
   }

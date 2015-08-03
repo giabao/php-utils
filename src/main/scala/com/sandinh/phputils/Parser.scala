@@ -6,7 +6,7 @@ import scala.util.Try
 
 private class UnserializeException(s: String) extends Exception
 
-private class Parser(str:String) {
+private class Parser(str: String) {
 
   private var data = ""
   private var pos: Int = 0
@@ -18,9 +18,9 @@ private class Parser(str:String) {
     data = decode(str, charset)
     val result = data.charAt(pos) match {
       case 's' => parseString()
-      case 'i' => 
+      case 'i' =>
         val currentPos = pos
-        Try(parseInteger()).getOrElse{
+        Try(parseInteger()).getOrElse {
           pos = currentPos
           parseLong()
         }
@@ -57,7 +57,7 @@ private class Parser(str:String) {
     pos = end + 1
     result
   }
-  
+
   private def parseDouble(): Double = {
     val end = data.indexOf(';', pos + 2)
     val result = data.substring(pos + 2, end).toDouble
@@ -73,8 +73,9 @@ private class Parser(str:String) {
   }
 
   private def parseBoolean(): Boolean = {
+    val result = data.charAt(pos + 2) == '1'
     pos += 4
-    data.charAt(pos + 2) == '1'
+    result
   }
 
   private def parseNull(): Null = {
@@ -105,6 +106,7 @@ private class Parser(str:String) {
     val className = data.substring(startName + 2, endName)
     val startField = data.indexOf(":", endName + 2)
     val fieldCount = data.substring(endName + 2, startField).toInt
+    pos = startField + 2
     var map = Map.empty[String, Any]
     refs += map
     for (i <- 0 until fieldCount) {

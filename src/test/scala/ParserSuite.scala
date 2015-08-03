@@ -34,10 +34,22 @@ class ParserSuite extends FunSuite {
       case _                                  => fail()
     }
   }
+  test("to boolean - true") {
+    parse("b:0;") match {
+      case false => //ok
+      case _     => fail()
+    }
+  }
+  test("to boolean - false") {
+    parse("b:1;") match {
+      case true => //ok
+      case _    => fail()
+    }
+  }
   test("to array") {
-    val data = """a:2:{i:0;s:2:"e1";i:1;s:2:"e2";}"""
+    val data = """a:3:{i:0;s:2:"e1";i:1;b:1;i:2;s:2:"e2";}"""
     parse(data) match {
-      case result: Map[_, _] => assert(result.sameElements(Map(0 -> "e1", 1 -> "e2")))
+      case result: Map[_, _] => assert(result.sameElements(Map(0 -> "e1", 1 -> true, 2 -> "e2")))
       case _                 => fail()
     }
   }

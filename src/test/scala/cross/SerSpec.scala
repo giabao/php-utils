@@ -14,16 +14,6 @@ class SerSpec extends FunSuite {
     out.close()
   }
 
-  test("ser from PHP should be validated in PHP unser") {
-    "php src/test/php/ser.php".!!
-
-    //if php test success => exit code == 0
-    //else => exit code == 1
-    // => "RuntimeException: Nonzero exit value: 1"
-    // => test fail
-    "php src/test/php/unser.php".!!
-  }
-
   test("ser from SCALA should be validated in PHP unser") {
     ser()
     "php src/test/php/unser.php".!!

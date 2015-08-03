@@ -1,5 +1,6 @@
 <?php
-$dataFile = "/tmp/php-ser.data";
+namespace cross;
+$dataFile = "php-ser.data";
 
 class DummyClass {
     var $var1 = "đĐe";
@@ -8,7 +9,7 @@ class DummyClass {
     var $var4 = null;
     var $var5;
     function __construct(){
-        $this->var5 = new stdClass();
+        $this->var5 = new \stdClass();
         $this->var5->x = [(float)123.4567, "k1" => "value1", "k2" => "Tiếng Việt"];
         $this->var6 = "a dynamic var";
     }
@@ -21,11 +22,11 @@ $data = [
     (float)123.4567,
     "Tiếng Việt",
     ["Cường", "Đỗ", "Đức", "Gia", "Bảo"],
+    [0 => "Cường", 1 => "Đỗ", 2 => "Đức", 3 => "Gia", 4 => "Bảo"],
     [123, "abc"],
+    [0 => 123, 1 => "abc"],
     ["k1" => "value1", "k2" => "Tiếng Việt"],
     ["k1" => 123, "k2" =>
-        "aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆ
-        fFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTu
-        UùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ"],
-    new DummyClass
+"aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ"
+]
 ];
