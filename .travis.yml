@@ -1,6 +1,10 @@
-sudo: false
-
 language: scala
+
+before_install:
+- sudo add-apt-repository ppa:ondrej/php5-5.6 -y
+- sudo apt-get update -qq
+- sudo apt-get install -qq php5
+- php --version
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION clean test

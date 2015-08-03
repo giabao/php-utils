@@ -1,4 +1,4 @@
-version := "1.0.4-SNAPSHOT"
+version := "1.0.4"
 scalaVersion := "2.11.7"
 crossScalaVersions := Seq(scalaVersion.value, "2.10.5")
 
@@ -9,4 +9,4 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.5" % Test
 
 scalacOptions ++= Seq("-encoding", "UTF-8", "-feature", "-deprecation")
 
-//parallelExecution in Test := false
+parallelExecution in Test := false
