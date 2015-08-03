@@ -1,5 +1,6 @@
 php-utils
 =========
+[![Build Status](https://travis-ci.org/giabao/php-utils.svg)](https://travis-ci.org/giabao/php-utils)
 
 Utils for serialize/un-serialize Scala object to PHP serialized string
 
@@ -16,3 +17,12 @@ This project is ported from Java project [Pherialize](https://github.com/kayahr/
 	Map(0 -> 123, 1 -> "abc")
 ```
 ### See test cases for more information :D
+
+### Changelogs
+see [CHANGES.md](CHANGES.md)
+
+### Licence
+This software is licensed under the Apache 2 license:
+http://www.apache.org/licenses/LICENSE-2.0
+
+Copyright 2014 Sân Đình (http://sandinh.com)
