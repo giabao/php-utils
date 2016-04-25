@@ -1,19 +1,37 @@
+sudo: required
+dist: trusty
 language: scala
 
-before_install:
-- sudo add-apt-repository ppa:ondrej/php5-5.6 -y
-- sudo apt-get update -qq
-- sudo apt-get install -qq php5
+scala:
+- 2.11.8
+- 2.12.0-M4
+
+env:
+- JDK=oraclejdk8 PHP=5.6.20
+- JDK=oraclejdk8 PHP=7.0.5
+- JDK=openjdk8 PHP=5.6.20
+- JDK=openjdk8 PHP=7.0.5
+
+before_script:
+- pushd $HOME/.php-build
+- git reset --hard HEAD
+- git checkout master
+- git pull
+- popd
+- travis_wait 20 phpenv install $PHP
+- phpenv global $PHP
 - php --version
+- jdk_switcher use $JDK
 
 script:
-  - sbt ++$TRAVIS_SCALA_VERSION clean test
+  - sbt ++$TRAVIS_SCALA_VERSION test
 
-scala:
-- 2.11.7
-- 2.10.5
+cache:
+  directories:
+    - $HOME/.ivy2/cache/
+    - $HOME/.sbt/boot/
 
-jdk:
-- oraclejdk8
-- oraclejdk7
-- openjdk7
+before_cache:
+  # Tricks to avoid unnecessary cache updates
+  - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
+  - find $HOME/.sbt -name "*.lock" -delete

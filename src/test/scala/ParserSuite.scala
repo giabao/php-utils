@@ -49,14 +49,14 @@ class ParserSuite extends FunSuite {
   test("to array") {
     val data = """a:3:{i:0;s:2:"e1";i:1;b:1;i:2;s:2:"e2";}"""
     parse(data) match {
-      case result: Map[_, _] => assert(result.sameElements(Map(0 -> "e1", 1 -> true, 2 -> "e2")))
+      case result: Map[_, _] => assert(result == Map(0 -> "e1", 1 -> true, 2 -> "e2"))
       case _                 => fail()
     }
   }
   test("to array 2") {
     val data = """a:2:{s:2:"k1";s:6:"value1";s:2:"k2";s:14:"Tiếng Việt";}"""
     parse(data) match {
-      case result: Map[_, _] => assert(result.sameElements(Map("k1" -> "value1", "k2" -> "Tiếng Việt")))
+      case result: Map[_, _] => assert(result == Map("k1" -> "value1", "k2" -> "Tiếng Việt"))
       case _                 => fail()
     }
   }
