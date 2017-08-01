@@ -1,3 +1,12 @@
+publishMavenStyle := true
+
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
+)
+
 pomExtra in Global := <url>https://github.com/giabao/php-utils</url>
   <licenses>
     <license>
