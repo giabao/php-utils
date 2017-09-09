@@ -1,6 +1,6 @@
 php-utils
 =========
-[![Build Status](https://travis-ci.org/giabao/php-utils.svg)](https://travis-ci.org/giabao/php-utils)
+[![Build Status](https://travis-ci.org/ohze/php-utils.svg)](https://travis-ci.org/ohze/php-utils)
 
 Utils for serialize/un-serialize Scala object to PHP serialized string
 
