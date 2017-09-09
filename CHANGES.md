@@ -1,5 +1,9 @@
 # Changelogs
 
+### 1.0.7
++ update sbt 1.0.0, sbt-pgp 1.1.0
++ use sbt-scalafmt-coursier instead of sbt-scalariform
+
 ### 1.0.6
 + update sbt 0.13.16, sbt-sonatype 2.0
 + update scala 2.11.11, 2.12.3, scalatest 3.0.3

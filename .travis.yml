@@ -10,9 +10,9 @@ env:
 - JDK=oraclejdk8 PHP=5.6.31
 - JDK=oraclejdk8 PHP=7.0.9
 - JDK=oraclejdk8 PHP=7.1.7
-- JDK=oraclejdk8 PHP=7.2.0beta1
+- JDK=oraclejdk8 PHP=7.2.0RC1
 - JDK=openjdk8 PHP=7.1.7
-- JDK=openjdk8 PHP=7.2.0beta1
+- JDK=openjdk8 PHP=7.2.0RC1
 
 before_script:
 - curl -L http://git.io/phpenv-installer | bash
