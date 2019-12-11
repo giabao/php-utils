@@ -5,7 +5,7 @@ crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1")
 name := "php-utils"
 organization := "com.sandinh"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
 
 scalacOptions ++= Seq("-encoding", "UTF-8", "-deprecation", "-feature")
 scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {

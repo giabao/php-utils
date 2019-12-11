@@ -1,8 +1,9 @@
 import com.sandinh.phputils.PhpObject
 import PhpObject.stringify
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class StringifySuite extends FlatSpec with Matchers {
+class StringifySuite extends AnyFlatSpec with Matchers {
   it should "from long, int, short, byte" in {
     //PHP 64bit will serialize long to `i`
     stringify(123456789012345L, php64bit = true) shouldBe "i:123456789012345;"

@@ -1,8 +1,8 @@
 import com.sandinh.phputils.PhpObject
 import PhpObject.parse
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ParserSuite extends FunSuite {
+class ParserSuite extends AnyFunSuite {
   test("to string") {
     val data = "s:3:\"abc\";"
     parse(data) match {

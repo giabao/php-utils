@@ -2,10 +2,11 @@ package cross
 
 import com.sandinh.phputils.PhpObject.parse
 import java.io.{BufferedInputStream, FileInputStream}
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import sys.process._
 
-class UnserSpec extends FlatSpec with Matchers {
+class UnserSpec extends AnyFlatSpec with Matchers {
   def unser(): Any = {
     val bis = new BufferedInputStream(new FileInputStream(Data.dataFile))
     val bytes = Stream.continually(bis.read).takeWhile(_ != -1).map(_.toByte).toArray
