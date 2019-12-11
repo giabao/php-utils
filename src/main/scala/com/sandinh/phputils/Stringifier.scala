@@ -49,43 +49,43 @@ private class Stringifier {
     } else false
   }
 
-  private def stringifyString(string: String, buffer: StringBuffer) {
+  private def stringifyString(string: String, buffer: StringBuffer): Unit = {
     val decoded: String = decode(string, charset)
     buffer.append("s:").append(decoded.length).append(":\"").append(string).append("\";")
   }
 
-  private def stringifyCharacter(value: Char, buffer: StringBuffer) {
+  private def stringifyCharacter(value: Char, buffer: StringBuffer): Unit = {
     buffer.append("s:1:\"").append(value).append("\";")
   }
 
-  private def stringifyNull(buffer: StringBuffer) {
+  private def stringifyNull(buffer: StringBuffer): Unit = {
     buffer.append("N;")
   }
 
-  private def stringifyInteger(number: Int, buffer: StringBuffer) {
+  private def stringifyInteger(number: Int, buffer: StringBuffer): Unit = {
     buffer.append("i:").append(number).append(";")
   }
 
-  private def stringifyLong(number: Long, buffer: StringBuffer) {
+  private def stringifyLong(number: Long, buffer: StringBuffer): Unit = {
     if ((number >= Integer.MIN_VALUE) && (number <= Integer.MAX_VALUE)) buffer.append("i:")
     else if (php64) buffer.append("i:")
     else buffer.append("d:")
     buffer.append(number).append(";")
   }
 
-  private def stringifyDouble(number: Double, buffer: StringBuffer) {
+  private def stringifyDouble(number: Double, buffer: StringBuffer): Unit = {
     buffer.append("d:").append(number).append(";")
   }
 
-  private def stringifyFloat(number: Float, buffer: StringBuffer) {
+  private def stringifyFloat(number: Float, buffer: StringBuffer): Unit = {
     buffer.append("d:").append(number).append(";")
   }
 
-  private def stringifyBoolean(value: Boolean, buffer: StringBuffer) {
+  private def stringifyBoolean(value: Boolean, buffer: StringBuffer): Unit = {
     buffer.append("b:").append(if (value) 1 else 0).append(";")
   }
 
-  private def stringifyCollection(collection: Iterable[_], buffer: StringBuffer) {
+  private def stringifyCollection(collection: Iterable[_], buffer: StringBuffer): Unit = {
     refs += collection
     buffer.append("a:").append(collection.size).append(":{")
     val iterator = collection.iterator
@@ -99,7 +99,7 @@ private class Stringifier {
     buffer.append('}')
   }
 
-  private def stringifyArray(array: Array[_], buffer: StringBuffer) {
+  private def stringifyArray(array: Array[_], buffer: StringBuffer): Unit = {
     refs += array
     val size = array.length
     buffer.append("a:").append(size).append(":{")
@@ -111,7 +111,7 @@ private class Stringifier {
     buffer.append('}')
   }
 
-  private def stringifyMap(map: Map[_, _], buffer: StringBuffer) {
+  private def stringifyMap(map: Map[_, _], buffer: StringBuffer): Unit = {
     refs += map
     buffer.append("a:").append(map.size).append(":{")
     map.foreach(e => {
@@ -122,7 +122,7 @@ private class Stringifier {
     buffer.append('}')
   }
 
-  private def stringifySerializable(o: Serializable, buffer: StringBuffer) {
+  private def stringifySerializable(o: Serializable, buffer: StringBuffer): Unit = {
 
     refs += o
     var c: Class[_] = o.getClass
