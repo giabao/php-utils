@@ -1,11 +1,6 @@
 publishMavenStyle := true
 
-publishTo := Some(
-  if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
-  else
-    Opts.resolver.sonatypeStaging
-)
+publishTo := sonatypePublishToBundle.value
 
 pomExtra in Global := <url>https://github.com/ohze/php-utils</url>
   <licenses>
