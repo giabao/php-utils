@@ -1,26 +1,24 @@
 sudo: required
-dist: trusty
+dist: xenial
 language: scala
 
-scala:
-- 2.11.11
-- 2.12.3
+jdk:
+  - openjdk8
+  - openjdk11
 
 # see https://github.com/php-build/php-build/tree/master/share/php-build/definitions
 env:
-- JDK=oraclejdk8 PHP=5.6.31
-- JDK=oraclejdk8 PHP=7.0.9
-- JDK=oraclejdk8 PHP=7.1.7
-- JDK=oraclejdk8 PHP=7.2.0beta3
-- JDK=openjdk8 PHP=7.1.7
-- JDK=openjdk8 PHP=7.2.0beta3
+- TRAVIS_SCALA_VERSION=2.13.1 PHP=7.0.9
+- TRAVIS_SCALA_VERSION=2.13.1 PHP=7.1.7
+- TRAVIS_SCALA_VERSION=2.12.10 PHP=7.3.9
+- TRAVIS_SCALA_VERSION=2.11.12 PHP=7.3.9
 
 before_script:
-- curl -L http://git.io/phpenv-installer | bash
+- curl -L https://raw.githubusercontent.com/phpenv/phpenv-installer/master/bin/phpenv-installer | bash
+- sudo apt-get install -y curl libcurl4-gnutls-dev libzip-dev
 - travis_wait 20 phpenv install $PHP
 - phpenv global $PHP
 - php --version
-- jdk_switcher use $JDK
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION test
