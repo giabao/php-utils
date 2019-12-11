@@ -8,20 +8,20 @@ jdk:
 
 # see https://github.com/php-build/php-build/tree/master/share/php-build/definitions
 env:
-- TRAVIS_SCALA_VERSION=2.13.1 PHP=7.0.9
-- TRAVIS_SCALA_VERSION=2.13.1 PHP=7.1.7
-- TRAVIS_SCALA_VERSION=2.12.10 PHP=7.3.9
-- TRAVIS_SCALA_VERSION=2.11.12 PHP=7.3.9
+- SCALA_VERSION=2.13.1 PHP=7.0.9
+- SCALA_VERSION=2.13.1 PHP=7.1.7
+- SCALA_VERSION=2.12.10 PHP=7.3.9
+- SCALA_VERSION=2.11.12 PHP=7.3.9
 
 before_script:
 - curl -L https://raw.githubusercontent.com/phpenv/phpenv-installer/master/bin/phpenv-installer | bash
 - sudo apt-get install -y curl libcurl4-gnutls-dev libzip-dev
-- travis_wait 20 phpenv install $PHP
+- travis_wait 15 phpenv install $PHP
 - phpenv global $PHP
 - php --version
 
 script:
-  - sbt ++$TRAVIS_SCALA_VERSION test
+  - sbt ++$SCALA_VERSION test
 
 before_cache:
 # Cleanup the cached directories to avoid unnecessary cache updates
