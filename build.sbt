@@ -1,6 +1,6 @@
-version := "1.0.7"
-scalaVersion := "2.12.3"
-crossScalaVersions := Seq("2.11.11", "2.12.3")
+version := "1.0.8-SNAPSHOT"
+scalaVersion := "2.13.1"
+crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1")
 
 name := "php-utils"
 organization := "com.sandinh"
