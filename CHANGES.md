@@ -1,4 +1,6 @@
 # Changelogs
+### 1.0.8
++ support scala 2.13
 
 ### 1.0.7
 + update sbt 1.0.0, sbt-pgp 1.1.0

@@ -1,4 +1,4 @@
-version := "1.0.8-SNAPSHOT"
+version := "1.0.8"
 scalaVersion := "2.13.1"
 crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1")
 
